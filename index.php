@@ -19,3 +19,7 @@ foreach ($users as $index => $user) {
 }
 
 array_push($usrs, ['name' => "Ko", "age" => 12]);
+
+array_unshift($users);
+
+array_splice($users, 2, 1, ['name' => "Mya", "age" => 12]);
