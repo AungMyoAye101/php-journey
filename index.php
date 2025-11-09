@@ -8,18 +8,14 @@ $users = [
 ];
 echo $users[0]['name'];
 
-
+array_pop($users);
+array_push($users, ["name" => "Zu", "age" => 18]);
+array_unshift($users, ["name" => "Mon", "age" => 28]);
 
 for ($i = 0; $i < count($users); $i++) {
     echo  $users[$i]["name"] . "\n";
 }
 
 foreach ($users as $index => $user) {
-    echo "<li> {$user["name"]}</li>";
+    echo "<li> {$user["name"]} and {$user["age"]}</li>";
 }
-
-array_push($usrs, ['name' => "Ko", "age" => 12]);
-
-array_unshift($users);
-
-array_splice($users, 2, 1, ['name' => "Mya", "age" => 12]);
