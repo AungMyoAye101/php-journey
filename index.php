@@ -20,3 +20,16 @@ for ($i = 0; $i < count($users); $i++) {
 foreach ($users as $index => $user) {
     echo "<li> {$user["name"]} and {$user["age"]}</li>";
 }
+
+function some_func($text)
+{
+
+    echo $text;
+};
+some_func("Oh my god");
+
+function add_value($a, $b)
+{
+    return $a + $b;
+}
+echo add_value(3, 66);
