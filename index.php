@@ -1,35 +1,27 @@
 <?php
 
-$users = [
-    ["name" => "Aung", "age" => 18],
-    ["name" => "Kyaw", "age" => 16],
-    ["name" => "Min", "age" => 20],
-    ["name" => "Lwin", "age" => 25],
-];
-echo $users[0]['name'];
 
-array_pop($users);
-array_push($users, ["name" => "Zu", "age" => 18]);
-array_unshift($users, ["name" => "Mon", "age" => 28]);
+$users = [["name" => "Aung", "age" => 20], ["name" => "Maung", "age" => 20]];
 
 
 for ($i = 0; $i < count($users); $i++) {
-    echo "<div> $i - {$users[$i]["name"]} </div>";
+    echo " {$users[$i]['name']} age {$users[$i]['age']}<br>";
 }
 
-foreach ($users as $index => $user) {
-    echo "<li> {$user["name"]} and {$user["age"]}</li>";
+foreach ($users as $key => $value) {
+    echo "$key : name = {$value['name']} , value = {$value['age']} <br>";
 }
 
-function some_func($text)
-{
-
-    echo $text;
-};
-some_func("Oh my god");
-
-function add_value($a, $b)
-{
-    return $a + $b;
+$colors = ["code" => 'red', "code" => 'green', "code" => 'blue', "code" => 'orange'];
+foreach ($colors as $key => $v) {
+    echo $colors[$key];
 }
-echo add_value(3, 66);
+$array = [
+    ["a", 'b', 'v'],
+    [3, 4, 6],
+];
+
+foreach ($array as [$a, $b]) {
+    // Note that there is no $c here.
+    echo "$a $b <br>";
+}
