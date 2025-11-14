@@ -1,10 +1,16 @@
-<form action="index.php" enctype="multipart/form-data" method="post">
-    <input type="file" name="photo" id="">
-    <button type="submit">upload</button>
-</form>
-
 <?php
-$file = $_FILES['photo'];
-if ($file) {
-    echo $file['name'];
-}
+
+session_start();
+
+if (!isset($_SESSION['name'])) {
+    header("Location: login.php");
+    exit();
+};
+
+$name = $_SESSION['name'];
+echo $name;
+?>
+
+<h1>Welcome <?= $name ?></h1>
+
+<a href="profile.php"> profile</a>
