@@ -1,31 +1,37 @@
+<a href="create.php"> create user</a>
 <?php
+include "connect.php";
 
-session_start();
-
-if (!isset($_SESSION['name'])) {
-    header("Location: login.php");
-    exit();
-};
-
-$name = $_SESSION['name'];
-echo $name;
-?>
-
-<h1>Welcome <?= $name ?></h1>
-
-<a href="profile.php"> profile</a>
-
-<form action="index.php" method="POST">
-    <button type="submit" style="background:red;padding:4px 1rem ; color:wheat">Logout</button>
-</form>
-
-<?php
-session_start();
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    session_destroy();
-    setcookie("name", "", time() - 3600);
-    header("Location: login.php");
-    exit();
+$sql = "SELECT * FROM users";
+$result = $connect->query($sql);
+$row = $result->fetch_assoc();
+foreach ($row as $key => $value) {
+    echo " <div> $key ; $value </div>";
 }
+echo $row;
+var_dump($row);
 ?>
+
+<h2>User List</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+
+    <?php while ($row = $result->fetch_assoc()) { ?>
+        <tr>
+            <td><?= $row['id'] ?></td>
+            <td><?= $row['NAME'] ?></td>
+            <td><?= $row['email'] ?></td>
+            <td>
+                <a href="update.php?id=<?= $row['id'] ?>">Edit</a> |
+                <a href="delete.php?id=<?= $row['id'] ?>">Delete</a>
+            </td>
+        </tr>
+    <?php } ?>
+
+</table>
