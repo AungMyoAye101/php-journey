@@ -61,7 +61,7 @@ body {
 }
 
 .btn {
-    font-size: 1rem;
+    font-size: 12px;
     padding: .6rem 1rem;
     border-radius: 8px;
     background: rgb(31, 31, 243);
@@ -81,6 +81,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 14px;
 }
 
 table {
@@ -93,6 +94,8 @@ tr,
 td {
     border: 1px solid #333;
     border-collapse: collapse;
+    text-align: center;
+    padding: 1rem 2rem;
 }
 
 th {
