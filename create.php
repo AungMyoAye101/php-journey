@@ -7,6 +7,9 @@
     <label for="email" style="display: flex; flex-direction:column;gap:4px;">
         <input type="email" name="email" placeholder="email">
     </label>
+    <label for="password" style="display: flex; flex-direction:column;gap:4px;">
+        <input type="password" name="password" placeholder="password">
+    </label>
     <button type="submit">Create</button>
 </form>
 
@@ -16,7 +19,8 @@ include "connect.php";
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $sql = "INSERT INTO users (name,email) VALUES ('$name','$email')";
+    $password = $_POST['password'];
+    $sql = "INSERT INTO users (name,email,password) VALUES ('$name','$email','$password')";
     if ($connect->query($sql) === TRUE) {
         echo "User Created Successfully!";
     } else {

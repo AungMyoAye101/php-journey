@@ -9,7 +9,9 @@ foreach ($row as $key => $value) {
     echo " <div> $key ; $value </div>";
 }
 echo $row;
-var_dump($row);
+// var_dump($row);
+var_dump($result->fetch_assoc());
+echo array($result->fetch_assoc())
 ?>
 
 <h2>User List</h2>
@@ -25,7 +27,7 @@ var_dump($row);
     <?php while ($row = $result->fetch_assoc()) { ?>
         <tr>
             <td><?= $row['id'] ?></td>
-            <td><?= $row['NAME'] ?></td>
+            <td><?= $row['name'] ?></td>
             <td><?= $row['email'] ?></td>
             <td>
                 <a href="update.php?id=<?= $row['id'] ?>">Edit</a> |
