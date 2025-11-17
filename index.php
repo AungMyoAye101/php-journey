@@ -10,7 +10,7 @@
 
 <body>
     <nav class="nav-bar">
-        <a href="" class="title">CRUD</a>
+        <a href="/php_journey" class="title">CRUD</a>
         <div class="flex item-center gap-2">
             <a href="pages/profile.html" class="btn">profile </a>
             <a href="pages/signup.html" class="btn">signup</a>
@@ -26,7 +26,7 @@
             You can create a user , read ,write and delete.
         </h3>
         <div class="flex item-center gap-4">
-            <a href="pages/signup.html" class="btn">Login</a>
+            <a href="pages/signup.html" class="btn">signup</a>
             <a href="pages/update.html" class="btn">update</a>
         </div>
     </section>
