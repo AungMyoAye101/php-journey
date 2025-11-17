@@ -1,3 +1,7 @@
+<?php
+include("./includes/db.con.php")
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
