@@ -1,5 +1,14 @@
 <?php
-include("./includes/db.con.php")
+try {
+    require_once("./includes/db.con.php");
+    $query = "SELECT * FROM users";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("failed to fetch users. " . $e->getMessage());
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -41,33 +50,22 @@ include("./includes/db.con.php")
                 <th>id</th>
                 <th>name</th>
                 <th>email</th>
-                <th>created at</th>
-            </tr>
-            <tr>
 
-                <td>1</td>
-                <td>a</td>
-                <td>b</td>
-                <td>2022</td>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>a</td>
-                <td>b</td>
-                <td>2022</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>a</td>
-                <td>b</td>
-                <td>2022</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>a</td>
-                <td>b</td>
-                <td>2022</td>
-            </tr>
+            <?php
+            if ($results) {
+                foreach ($results as $row) {
+                    echo " <tr>
+                <td>{$row['id']}</td>
+                <td>{$row['name']}</td>
+                <td>{$row['email']}</td>     
+            </tr>";
+                }
+            } else {
+                echo "No data";
+            }
+            ?>
+
 
         </table>
     </section>
