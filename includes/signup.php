@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $pdo = null;
         $stmt = null;
-
+        $_SESSION['user'] = [['name' => $name], ['email' => $email]];
         header("Location: ../index.php");
         die();
     } catch (PDOException $e) {

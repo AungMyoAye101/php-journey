@@ -1,4 +1,6 @@
 <?php
+session_start();
+var_dump($_SESSION['user']);
 try {
     require_once("./includes/db.con.php");
     $query = "SELECT * FROM users";
